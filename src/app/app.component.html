@@ -19,7 +19,13 @@
               class="help-block"
               style="color: red;"
             >
-              Please enter a valid username!
+              <span *ngIf="signupForm.get('userData.username').errors['nameIsForbidden']">
+                This name is invalid! Please enter a valid username!
+
+              </span>
+              <span *ngIf="signupForm.get('userData.username').errors['required']">
+                This field is required!
+              </span>
             </span>
           </div>
           <div class="form-group">
